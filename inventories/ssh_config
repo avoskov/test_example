@@ -1,0 +1,4 @@
+Host test_example
+     Hostname 192.168.4.100
+     Port 22
+     User ubuntu
