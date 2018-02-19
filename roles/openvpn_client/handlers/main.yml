@@ -1,4 +1,6 @@
 ---
+# handlers file for openvpn_client
+
 - name: restart openvpn
   service:
     name: openvpn@client

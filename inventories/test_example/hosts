@@ -1,2 +1,2 @@
 [openvpn]
-test_example ansible_ssh_pass=test_example ansible_become_pass=test_example
+test_example 

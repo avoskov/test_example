@@ -1,20 +1,7 @@
 ---
-
-- name: Include vars
-  include_vars: cert.yml
-  tags:
-    - install
-    - config
-
 - name: Installing openvpn package
+  become: true
   apt:
     name: "openvpn={{ openvpn_package_version }}"
     update_cache: yes
     cache_valid_time: "{{ openvpn_cache_valid_time }}"
-  tags:
-    - install
-
-- include_tasks: config.yml
-  tags:
-    - install
-    - config

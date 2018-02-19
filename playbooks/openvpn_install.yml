@@ -2,4 +2,4 @@
 
 - hosts: openvpn
   roles:
-    - role: openvpn
+    - role: openvpn_client

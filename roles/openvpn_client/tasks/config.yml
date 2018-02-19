@@ -1,14 +1,12 @@
 ---
+- name: Include vars
+  include_vars: main.yml
 
 - name: Copy client config
+  become: true
   template:
     src: "{{ item }}.j2"
     dest: "/{{ item }}"
   with_items:
     - "etc/openvpn/client.conf"
   notify: restart openvpn
-  tags:
-    - config
-    - install
-      
-

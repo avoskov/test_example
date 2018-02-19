@@ -1,8 +1,0 @@
----
-openvpn_dev_type: tun
-openvpn_tcp_or_udp: udp
-openvpn_remote_server_ip: 8.8.8.8
-openvpn_remote_server_port: 2195
-openvpn_package_version: 2.3.10-1ubuntu2.1
-openvpn_cache_valid_time: 86400
-
