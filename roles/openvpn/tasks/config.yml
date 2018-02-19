@@ -1,0 +1,14 @@
+---
+
+- name: Copy client config
+  template:
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+  with_items:
+    - "etc/openvpn/client.conf"
+  notify: restart openvpn
+  tags:
+    - config
+    - install
+      
+

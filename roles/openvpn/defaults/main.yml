@@ -1,11 +1,8 @@
 ---
-install_dir: /etc/openvpn
-openvpn_dev: tun
-tcp_or_udp: udp
-remote_server_ip: 8.8.8.8
-remote_server_port: 2195
-user_key_file: "{{ install_dir }}/client1.key"
-user_cert_file: "{{ install_dir }}/client1.crt"
-user_ca_file: "{{ install_dir }}/ca.crt"
-user_tls_auth_file: "{{ install_dir }}/ta.key"
+openvpn_dev_type: tun
+openvpn_tcp_or_udp: udp
+openvpn_remote_server_ip: 8.8.8.8
+openvpn_remote_server_port: 2195
+openvpn_package_version: 2.3.10-1ubuntu2.1
+openvpn_cache_valid_time: 86400
 

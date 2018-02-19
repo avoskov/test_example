@@ -1,39 +1,20 @@
 ---
 
 - name: Include vars
-  include_vars: certificate.yml
+  include_vars: cert.yml
+  tags:
+    - install
+    - config
 
 - name: Installing openvpn package
   apt:
-    name: openvpn
+    name: "openvpn={{ openvpn_package_version }}"
     update_cache: yes
+    cache_valid_time: "{{ openvpn_cache_valid_time }}"
+  tags:
+    - install
 
-- name: Copy client config
-  template:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-  with_items:
-    - src: ca.crt.j2
-      dest: "{{ install_dir }}/ca.crt"
-    - src: ta.key.j2
-      dest: "{{ install_dir }}/ta.key"
-    - src: client.crt.j2
-      dest: "{{ install_dir }}/client1.crt"
-    - src: client.key.j2
-      dest: "{{ install_dir }}/client1.key"
-    - src: client.conf.j2
-      dest: "{{ install_dir }}/client.conf"
-
-- name: Change file group
-  file:
-    path:  "{{ install_dir }}/{{ item }}"
-    mode: "g-r,o-r"
-  with_items:
-    - client1.key
-    - ta.key
-
-- name: Restart openvpn service
-  service:
-    name: openvpn@client
-    state: restarted
-    enabled: yes    
+- include_tasks: config.yml
+  tags:
+    - install
+    - config

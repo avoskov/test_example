@@ -1,0 +1,28 @@
+{{ ansible_managed | comment }}
+client
+nobind
+dev {{ openvpn_dev_type }}
+key-direction 1
+remote-cert-tls server
+proto {{ openvpn_tcp_or_udp }}
+remote {{ openvpn_remote_server_ip }} {{ openvpn_remote_server_port }}
+auth-nocache
+comp-lzo
+reneg-sec 259200
+<ca>
+{{ openvpn_user_ca }}
+</ca>
+
+<key>
+{{ openvpn_user_key }}
+</key>
+
+key-direction 1
+
+<cert>
+{{ openvpn_user_cert }}
+</cert>
+
+<tls-auth>
+{{ openvpn_user_tls_auth }}
+</tls-auth>
